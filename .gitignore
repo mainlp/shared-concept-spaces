@@ -1,0 +1,67 @@
+.env
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.env/
+.venv/
+
+# pytest
+.cache/
+.pytest_cache/
+.python-version
+
+# Coverage reports
+htmlcov/
+.coverage
+coverage.xml
+
+# Ruff cache (optional, usually very small)
+ruff_cache/
+
+# Logs
+*.log
+
+# Test output / temp files
+*.tmp
+*.bak
+*.swp
+
+# VSCode settings
+.vscode/
+
+# macOS
+.DS_Store
+
+# Python packaging
+*.egg-info/
+dist/
+build/
+
+# Pre-commit
+.pre-commit-config.yaml~
+.pre-commit-hooks.yaml~
+
+# prompts cache
+prompts_cache/
+
+# frequency lists
+*freq*.json
+
+# results folder
+results/
+
+# plots folder
+plots/
+
+# annotations folder
+annotations/
+
+# fasttext
+cc.*.*.bin
+
+# data folder
+data/
