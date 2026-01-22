@@ -1,3 +1,5 @@
 pandas
-black
-ruff
+load-dotenv
+tqdm
+torch
+nnsight==0.5.5

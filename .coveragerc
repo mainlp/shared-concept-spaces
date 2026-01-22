@@ -1,0 +1,16 @@
+# .coveragerc
+[run]
+source = clap
+omit =
+    tests/*
+    */__init__.py
+    /tmp/*
+
+[report]
+show_missing = true
+exclude_lines =
+    pragma: no cover
+    if __name__ == .__main__.:
+
+[html]
+directory = htmlcov

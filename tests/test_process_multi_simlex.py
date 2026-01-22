@@ -1,4 +1,7 @@
-from process_multi_simlex import (
+import pandas as pd
+import pandas.testing as pdt
+
+from clap.process_multi_simlex import (
     load_multi_simlex_raw,
     get_language_columns,
     merge_df,
@@ -9,8 +12,6 @@ from process_multi_simlex import (
     map_and_clean_columns,
     get_suffix_columns,
 )
-import pandas as pd
-import pandas.testing as pdt
 
 
 def test_load_multi_simlex_raw():
@@ -175,9 +176,9 @@ def test_multi_simlex_to_df():
     for col in df.columns:
         if col not in ["ID", "PoS", "word_original"]:
             assert col in simlex_id_to_iso_code.values()
-            assert all(
-                isinstance(x, list) for x in df[col]
-            ), f"Not all entries in {col} are lists"
+            assert all(isinstance(x, list) for x in df[col]), (
+                f"Not all entries in {col} are lists"
+            )
 
 
 def combine_rows(row1, row2, df, new_id=None):
@@ -224,9 +225,9 @@ def test_multi_simlex_to_df_duplicate_pos():
     for col in df.columns:
         if col not in ["ID", "PoS", "word_original"]:
             assert col in simlex_id_to_iso_code.values()
-            assert all(
-                isinstance(x, list) for x in df[col]
-            ), f"Not all entries in {col} are lists"
+            assert all(isinstance(x, list) for x in df[col]), (
+                f"Not all entries in {col} are lists"
+            )
 
     w1 = new_row["translation 1"]
     w2 = new_row["translation 2"]
@@ -235,9 +236,9 @@ def test_multi_simlex_to_df_duplicate_pos():
     for _, row in subset.iterrows():
         for lang in simlex_id_to_iso_code.values():
             assert isinstance(row[lang], list), f"{lang} entry is not a list"
-            assert (
-                len(row[lang]) == 2
-            ), f"{lang} entry does not contain 2 items: {row[lang]}"
+            assert len(row[lang]) == 2, (
+                f"{lang} entry does not contain 2 items: {row[lang]}"
+            )
 
 
 def test_multi_simlex_to_df_conflicting_pos():
@@ -256,6 +257,6 @@ def test_multi_simlex_to_df_conflicting_pos():
     for col in df.columns:
         if col not in ["ID", "PoS", "word_original"]:
             assert col in simlex_id_to_iso_code.values()
-            assert all(
-                isinstance(x, list) for x in df[col]
-            ), f"Not all entries in {col} are lists"
+            assert all(isinstance(x, list) for x in df[col]), (
+                f"Not all entries in {col} are lists"
+            )

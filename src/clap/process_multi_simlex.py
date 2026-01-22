@@ -1,23 +1,8 @@
 import pandas as pd
-from const import MULTI_SIMLEX_PATH
-import ast
 from typing import List
 
-simlex_id_to_iso_code = {
-    "ENG": "en",
-    "ARA": "ar",
-    "CMN": "zh",  # Mandarin
-    "CYM": "cy",  # Welsh
-    "EST": "et",
-    "FIN": "fi",
-    "FRA": "fr",
-    "HEB": "he",
-    "POL": "pl",
-    "RUS": "ru",
-    "SPA": "es",
-    "SWA": "sw",
-    "YUE": "yue",  # Cantonese
-}
+from clap.const import MULTI_SIMLEX_PATH
+from clap.lang_utils import simlex_id_to_iso_code
 
 
 def load_multi_simlex_raw() -> pd.DataFrame:
@@ -173,21 +158,6 @@ def multi_simlex_to_csv():
     print(
         f"Processed dataset saved to {MULTI_SIMLEX_PATH.replace('.csv', '_processed.csv')}"
     )
-
-
-def multi_simlex_from_csv():
-    df = pd.read_csv(MULTI_SIMLEX_PATH.replace(".csv", "_processed.csv"))
-    df = df.map(safe_eval)
-    return df
-
-
-def safe_eval(val):
-    if isinstance(val, str):
-        try:
-            return ast.literal_eval(val)
-        except (ValueError, SyntaxError):
-            return val
-    return val
 
 
 if __name__ == "__main__":

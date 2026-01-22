@@ -1,0 +1,15 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.12
+    hooks:
+      - id: ruff
+      - id: ruff-format
+
+  - repo: local
+    hooks:
+      - id: coverage-check
+        name: Check test coverage
+        entry: bash -c "coverage run --rcfile=.coveragerc -m pytest tests && coverage report --fail-under=45"
+        language: python
+        pass_filenames: false
+        additional_dependencies: ["."]
