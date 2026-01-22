@@ -1,7 +1,7 @@
 import pandas as pd
 import pandas.testing as pdt
 
-from clap.process_multi_simlex import (
+from clap.multi_simlex_utils import (
     load_multi_simlex_raw,
     get_language_columns,
     merge_df,

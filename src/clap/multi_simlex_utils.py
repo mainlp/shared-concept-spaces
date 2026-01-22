@@ -149,17 +149,3 @@ def get_language_columns(columns: List[str]) -> List[str]:
     return [
         col for col in columns if col not in ["ID", "PoS", "scores", "word_original"]
     ]
-
-
-def multi_simlex_to_csv():
-    df = load_multi_simlex_raw()
-    df = multi_simlex_to_df(df)
-    df.to_csv(MULTI_SIMLEX_PATH.replace(".csv", "_processed.csv"), index=False)
-    print(
-        f"Processed dataset saved to {MULTI_SIMLEX_PATH.replace('.csv', '_processed.csv')}"
-    )
-
-
-if __name__ == "__main__":
-    multi_simlex_to_csv()
-    print("Multi-SimLex dataset processing completed.")
