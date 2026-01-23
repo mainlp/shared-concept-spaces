@@ -2,4 +2,5 @@ pandas
 load-dotenv
 tqdm
 torch
+coolname
 nnsight==0.5.5

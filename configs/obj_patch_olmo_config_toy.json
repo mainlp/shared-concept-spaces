@@ -1,0 +1,8 @@
+{
+  "model": "allenai/OLMo-2-1124-7B",
+  "tokenizer": "allenai/OLMo-2-1124-7B",
+  "batch_size": 256,
+  "experiment_type": "obj_patching",
+  "seed": 42,
+  "prompts_cache": "data/prompts_cache/OLMo-2-1124-7B_42_5_16_prompts.pkl"
+}

@@ -16,3 +16,9 @@ where = ["src"]
 [tool.ruff]
 lint.select = ["E", "F", "B"]
 lint.ignore = ["E501"]
+
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    "ignore:.*SwigPyPacked.*:DeprecationWarning",
+]

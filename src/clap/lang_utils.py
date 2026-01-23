@@ -22,6 +22,45 @@ lang2name = {
     "yue": "粵語",
 }
 
+ellm_langs = {
+    "bg",  # Bulgarian
+    "hr",  # Croatian
+    "cs",  # Czech
+    "da",  # Danish
+    "nl",  # Dutch
+    "en",  # English
+    "et",  # Estonian
+    "fi",  # Finnish
+    "fr",  # French
+    "de",  # German
+    "el",  # Greek
+    "hu",  # Hungarian
+    "ga",  # Irish
+    "it",  # Italian
+    "lv",  # Latvian
+    "lt",  # Lithuanian
+    "mt",  # Maltese
+    "pl",  # Polish
+    "pt",  # Portuguese
+    "ro",  # Romanian
+    "sk",  # Slovak
+    "sl",  # Slovenian
+    "es",  # Spanish
+    "sv",  # Swedish
+    "ar",  # Arabic
+    "ca",  # Catalan
+    "zh",  # Chinese
+    "gl",  # Galician
+    "hi",  # Hindi
+    "ja",  # Japanese
+    "ko",  # Korean
+    "no",  # Norwegian
+    "ru",  # Russian
+    "tr",  # Turkish
+    "uk",  # Ukrainian
+}
+
+
 simlex_id_to_iso_code = {
     "ENG": "en",
     "ARA": "ar",
@@ -54,3 +93,10 @@ def get_permutations(skip_langs: set[str] | None = None) -> list[tuple[str, str]
     lang_pairs = list(permutations(langs, 2))
     lang_pairs.append(("en", "en"))
     return lang_pairs
+
+
+def get_ellm_langs(extended: bool = True) -> set[str]:
+    ellm_langs_extended = ellm_langs.copy()
+    if extended:
+        ellm_langs_extended.add("yue")
+    return ellm_langs_extended
