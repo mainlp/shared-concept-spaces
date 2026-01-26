@@ -2,6 +2,7 @@ import pandas as pd
 import pandas.testing as pdt
 
 from clap.multi_simlex_utils import (
+    filter_by_pos,
     load_multi_simlex_raw,
     get_language_columns,
     merge_df,
@@ -161,6 +162,20 @@ def test_remove_conflicting_pos():
         }
     ).reset_index(drop=True)
     pdt.assert_frame_equal(df, expected_df)
+
+
+def test_filter_by_pos():
+    df = pd.DataFrame(
+        {
+            "ID": ["1", "2", "3", "4", "5"],
+            "PoS": ["nouns", "verbs", "nouns", "adjectives", "adjectives"],
+            "word_original": ["plant", "plant", "horse", "pretty", "pretty"],
+        }
+    )
+    filtered_df = filter_by_pos(df, "nouns")
+    assert len(filtered_df) == 2
+    assert all(pos == "nouns" for pos in filtered_df["PoS"])
+    assert filtered_df["word_original"].tolist() == ["plant", "horse"]
 
 
 def test_multi_simlex_to_df():

@@ -112,6 +112,13 @@ def merge_same_pos(df):
     return df
 
 
+def filter_by_pos(df, filter_pos):
+    before_len = len(df)
+    df = df[df["PoS"] == filter_pos].copy()
+    print(f"Subselected {len(df)}/{before_len} words with PoS: {filter_pos}")
+    return df
+
+
 def multi_simlex_to_df(df: pd.DataFrame) -> pd.DataFrame:
     df = merge_df(df)
 
@@ -123,6 +130,9 @@ def multi_simlex_to_df(df: pd.DataFrame) -> pd.DataFrame:
 
     # Merge translations for words with the same PoS
     df = merge_same_pos(df)
+
+    # Filter by part of speech, we force nouns
+    df = filter_by_pos(df, "nouns")
 
     return df
 
