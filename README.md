@@ -33,4 +33,6 @@ NOTE: Due to historical reasons, *if* you have target output lang *other than en
 ### Models to Test
 1. EuroLLM: as of publishing, we only have local copies of EuroLLM, shared by the developers. Set `ELLM_PATH` in .env to the directory.
 2. Apertus 8B and OLMo2-7B: these should work out of the box by downloading revisions from HuggingFace.
-3. Other models: to test other models, you must adapt `clap.hf_utils.get_sorted_steps`, `clap.hf_utils.get_policy_for_model`, as well as define a policy in POLICIES (defines which subset of checkpoints will be tested). You may also need to adapt `clap.hf_utils.get_all_refs`. Please open an issue if you get stuck, we will try to help you.
+3. Other models: to test other models, you must adapt `clap.hf_utils.get_sorted_steps`, `clap.hf_utils.get_policy_for_model`, as well as define a policy in POLICIES (defines which subset of checkpoints will be tested). You may also need to adapt `clap.hf_utils.get_all_refs`.
+
+Please open an issue if you get stuck, we will try to help you!
